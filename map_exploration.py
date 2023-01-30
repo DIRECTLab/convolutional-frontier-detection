@@ -9,7 +9,7 @@ from frontier_algorithms.expanding_wavefront import ExpandingWavefront
 import time
 from cbba.frontier_assignment import frontier_assignment
 
-with open('simple-sim/config.yml', 'r') as file:
+with open('config.yml', 'r') as file:
     config = yaml.safe_load(file)
 
 if __name__ == '__main__':

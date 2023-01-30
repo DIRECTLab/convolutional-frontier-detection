@@ -2,11 +2,12 @@ import numpy as np
 from sklearn.cluster import DBSCAN
 import yaml
 
-with open('simple-sim/config.yml', 'r') as file:
+with open('config.yml', 'r') as file:
     config = yaml.safe_load(file)
 class SimpleFrontierDetector:
     def __init__(self):
         self.invalid_frontiers = set()
+        self.algorithm_name = "Simple"
 
     def mark_frontier_invalid(self, invalid_frontier):
         """

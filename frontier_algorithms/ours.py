@@ -5,8 +5,8 @@ class FrontierDetector:
         self.min_distance_to_goal = 0.5
         self.new_area_weight = 1
         self.proximity_weight = 1
-
         self.invalid_frontiers = set()
+        self.algorithm_name = "Convolutional"
 
     def mark_frontier_invalid(self, invalid_frontier):
         """

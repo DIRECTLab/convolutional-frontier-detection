@@ -3,7 +3,7 @@ from sklearn.cluster import DBSCAN
 import yaml
 import random
 
-with open('simple-sim/config.yml', 'r') as file:
+with open('config.yml', 'r') as file:
     config = yaml.safe_load(file)
 
 random.seed(7)
@@ -13,6 +13,7 @@ class NaiveActiveArea:
         self.invalid_frontiers = set()
         self.is_frontier = dict()
         self.was_frontier = set()
+        self.algorithm_name = "NaiveActiveArea"
 
     def mark_frontier_invalid(self, invalid_frontier):
         """
@@ -57,6 +58,10 @@ class NaiveActiveArea:
         frontiers = [frontier for frontier in self.is_frontier.values()]
 
         frontiers = np.array(frontiers)
+
+        if len(frontiers) == 0:
+            return frontiers
+
         dbscan_cluster = DBSCAN(eps=1, min_samples=3)
         cluster_labels = dbscan_cluster.fit_predict(frontiers)
         

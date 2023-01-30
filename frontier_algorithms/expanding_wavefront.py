@@ -4,7 +4,7 @@ import yaml
 import random
 from collections import deque
 
-with open('simple-sim/config.yml', 'r') as file:
+with open('config.yml', 'r') as file:
     config = yaml.safe_load(file)
 
 random.seed(7)
@@ -14,6 +14,7 @@ class ExpandingWavefront:
         self.invalid_frontiers = set()
         self.visited_frontiers = set()
         self.previous_frontiers = dict()
+        self.algorithm_name = "ExpandingWavefront"
 
     def mark_frontier_invalid(self, invalid_frontier):
         """

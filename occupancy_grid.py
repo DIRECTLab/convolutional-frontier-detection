@@ -6,7 +6,7 @@ import numba
 from numba import jit
 import time
 
-with open('simple-sim/config.yml', 'r') as file:
+with open('config.yml', 'r') as file:
     config = yaml.safe_load(file)
 
 class OccupancyGrid:
