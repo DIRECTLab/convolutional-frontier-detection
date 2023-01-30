@@ -6,6 +6,18 @@ Two versions of running/testing the algorithms can be found. The first only runs
 
 The second version of running the algorithms can be found in [map_exploration.py](./map_exploration.py). This one runs a full exploration process, from detection, goal assignment, and path planning/traversal. The code tends to run fairly slow due to the A* algorithm though, which is the reasoning for providing the first version.
 
+For both versions of the file, you can run with just
+
+```sh
+$ python detection_speed_test.py
+```
+
+or
+
+```sh
+$ python map_exploration.py
+```
+
 The file [config.yml](./config.yml) contains a few parameters that can be tuned, specifically for the map exploration version, such as the view distance of the robot, along with steps before replanning and such.
 
 ## Creating Maps
