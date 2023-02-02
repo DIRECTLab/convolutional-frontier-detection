@@ -12,7 +12,7 @@ def valid_point(frontier, occupancy_grid):
     return 0 <= frontier[0] < occupancy_grid.shape[0] and 0 <= frontier[1] < occupancy_grid.shape[1]
 
 if __name__ == '__main__':
-    world_files = [("star.tmj", np.array([[500, 500]])), ("large-field-large-explored.tmj", np.array([[500, 500]])), ("large-field-medium-explored.tmj", np.array([[500, 500]])), ("medium-field-large-explored.tmj", np.array([[250, 250]])), ("medium-field-medium-explored.tmj", np.array([[250, 250]]))]
+    world_files = [("star.tmj", np.array([[100, 100], [70, 500], [275, 180]])), ("large-field-large-explored.tmj", np.array([[450, 200], [820, 420], [600, 850]])), ("large-field-medium-explored.tmj", np.array([[450, 250], [250, 450], [675, 600]])), ("medium-field-large-explored.tmj", np.array([[80, 100], [400, 100], [270, 425]])), ("medium-field-medium-explored.tmj", np.array([[300, 100], [140, 340], [400, 320]]))]
     test_iterations = 40
     results = []
 
@@ -20,7 +20,7 @@ if __name__ == '__main__':
         print(f"Loading world {world_file}...\n")
         occupancy_grid = OccupancyGrid(f'maps/{world_file}', True)
 
-        detection_algorithms = [SimpleFrontierDetector(), ConvolutionalFrontierDetector(8), ConvolutionalFrontierDetector(16), ConvolutionalFrontierDetector(32), ConvolutionalFrontierDetector(64), ConvolutionalFrontierDetector(128), ExpandingWavefront()]
+        detection_algorithms = [SimpleFrontierDetector(), ConvolutionalFrontierDetector(8), ConvolutionalFrontierDetector(16), ConvolutionalFrontierDetector(32), ConvolutionalFrontierDetector(64), ConvolutionalFrontierDetector(128), ExpandingWavefront(), NaiveActiveArea()]
 
         current_frontier = np.zeros((occupancy_grid.height, occupancy_grid.width)) # used for display at the end
 
