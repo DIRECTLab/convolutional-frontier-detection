@@ -126,6 +126,10 @@ class ExpandingWavefront:
                             queue.append(new_pos)
 
         frontiers = np.array(frontiers)
+
+        if len(frontiers) == 0:
+            return frontiers
+
         dbscan_cluster = DBSCAN(eps=1, min_samples=3)
         cluster_labels = dbscan_cluster.fit_predict(frontiers)
         

@@ -12,15 +12,15 @@ def valid_point(frontier, occupancy_grid):
     return 0 <= frontier[0] < occupancy_grid.shape[0] and 0 <= frontier[1] < occupancy_grid.shape[1]
 
 if __name__ == '__main__':
-    world_files = ["star.tmj", "large-field-large-explored.tmj", "large-field-medium-explored.tmj", "medium-field-large-explored.tmj", "medium-field-medium-explored.tmj"]
+    world_files = [("star.tmj", np.array([[500, 500]])), ("large-field-large-explored.tmj", np.array([[500, 500]])), ("large-field-medium-explored.tmj", np.array([[500, 500]])), ("medium-field-large-explored.tmj", np.array([[250, 250]])), ("medium-field-medium-explored.tmj", np.array([[250, 250]]))]
     test_iterations = 40
     results = []
 
-    for world_file in world_files:
+    for world_file, robot_positions in world_files:
         print(f"Loading world {world_file}...\n")
         occupancy_grid = OccupancyGrid(f'maps/{world_file}', True)
 
-        detection_algorithms = [SimpleFrontierDetector(), ConvolutionalFrontierDetector(16), ConvolutionalFrontierDetector(32), ConvolutionalFrontierDetector(64), ConvolutionalFrontierDetector(128), ExpandingWavefront()]
+        detection_algorithms = [SimpleFrontierDetector(), ConvolutionalFrontierDetector(8), ConvolutionalFrontierDetector(16), ConvolutionalFrontierDetector(32), ConvolutionalFrontierDetector(64), ConvolutionalFrontierDetector(128), ExpandingWavefront()]
 
         current_frontier = np.zeros((occupancy_grid.height, occupancy_grid.width)) # used for display at the end
 
@@ -30,12 +30,12 @@ if __name__ == '__main__':
             current_result_file = f"results/{world_file}-{current_detection_algorithm.algorithm_name}.csv"
             current_results = []
             # Warm up the run, EWFD and NaiveAA both require prior data, so to be fair in timing, we allow them to have their first run here
-            current_detection_algorithm.identify_frontiers(occupancy_grid.as_flat(), occupancy_grid.width, occupancy_grid.height, np.array([[500, 500]]))
+            current_detection_algorithm.identify_frontiers(occupancy_grid.as_flat(), occupancy_grid.width, occupancy_grid.height, robot_positions)
             
             timings = []
             for i in tqdm(range(test_iterations)):
                 current = time.time()
-                frontiers = current_detection_algorithm.identify_frontiers(occupancy_grid.as_flat(), occupancy_grid.width, occupancy_grid.height, np.array([[500, 500]]))
+                frontiers = current_detection_algorithm.identify_frontiers(occupancy_grid.as_flat(), occupancy_grid.width, occupancy_grid.height, robot_positions)
                 current_elapsed = time.time() - current
                 timings.append(current_elapsed)
                 current_results.append({'time': current_elapsed})
