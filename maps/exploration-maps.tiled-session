@@ -3,7 +3,7 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "large-field-large-explored.tmx",
+    "activeFile": "star.tmx",
     "expandedProjectPaths": [
         "."
     ],
@@ -24,16 +24,40 @@
             "scale": 0.03125,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 19712,
-                "y": 15552
+                "x": 16000,
+                "y": 16000
             }
         },
         "large-field-medium-explored.tmx": {
+            "scale": 0.03125,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 16768,
+                "y": 16384
+            }
+        },
+        "large-field.tmx": {
+            "scale": 0.03125,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 23424,
+                "y": 16096
+            }
+        },
+        "medium-field-large-explored.tmx": {
             "scale": 0.0625,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 15840,
-                "y": 15824
+                "x": 8000,
+                "y": 8000
+            }
+        },
+        "medium-field-medium-explored.tmx": {
+            "scale": 0.0625,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 8000,
+                "y": 8000
             }
         },
         "simple-field.tmx": {
@@ -43,22 +67,43 @@
                 "x": 660,
                 "y": 798
             }
+        },
+        "star.tmj": {
+            "scale": 0.03125,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 20672,
+                "y": 15840
+            }
+        },
+        "star.tmx": {
+            "scale": 0.03125,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 16000,
+                "y": 16000
+            }
         }
     },
     "last.exportedFilePath": "D:/direct-lab/smbp-2/simple-sim/maps",
     "last.imagePath": "C:/Users/funny/Downloads",
     "map.fixedSize": true,
-    "map.height": 1000,
+    "map.height": 500,
     "map.lastUsedExportFilter": "JSON map files (*.tmj *.json)",
     "map.lastUsedFormat": "tmx",
-    "map.width": 1000,
+    "map.width": 500,
     "openFiles": [
-        "large-field-large-explored.tmx"
+        "star.tmx"
     ],
     "project": "exploration-maps.tiled-project",
     "recentFiles": [
-        "large-field-large-explored.tmx",
+        "star.tmx",
+        "medium-field-medium-explored.tmx",
+        "medium-field-large-explored.tmx",
         "large-field-medium-explored.tmx",
+        "large-field-large-explored.tmx",
+        "large-field.tmx",
+        "star.tmj",
         "simple-field.tmx",
         "Terrain.tsx",
         "astar_test.tmx"

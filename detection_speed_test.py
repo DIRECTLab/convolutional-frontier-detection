@@ -1,6 +1,6 @@
 from occupancy_grid import OccupancyGrid
 from frontier_algorithms.simple_search import SimpleFrontierDetector
-from frontier_algorithms.ours import FrontierDetector
+from frontier_algorithms.convolutional import ConvolutionalFrontierDetector
 from frontier_algorithms.naiveAA import NaiveActiveArea
 from frontier_algorithms.expanding_wavefront import ExpandingWavefront
 import numpy as np
@@ -12,21 +12,23 @@ def valid_point(frontier, occupancy_grid):
     return 0 <= frontier[0] < occupancy_grid.shape[0] and 0 <= frontier[1] < occupancy_grid.shape[1]
 
 if __name__ == '__main__':
-    world_files = ["star.tmj", "large-field-large-explored.tmj", "large-field-medium-explored.tmj"]
-    test_iterations = 4
+    world_files = ["star.tmj", "large-field-large-explored.tmj", "large-field-medium-explored.tmj", "medium-field-large-explored.tmj", "medium-field-medium-explored.tmj"]
+    test_iterations = 40
     results = []
 
     for world_file in world_files:
         print(f"Loading world {world_file}...\n")
         occupancy_grid = OccupancyGrid(f'maps/{world_file}', True)
 
-        detection_algorithms = [SimpleFrontierDetector(), FrontierDetector(), ExpandingWavefront()]
+        detection_algorithms = [SimpleFrontierDetector(), ConvolutionalFrontierDetector(16), ConvolutionalFrontierDetector(32), ConvolutionalFrontierDetector(64), ConvolutionalFrontierDetector(128), ExpandingWavefront()]
 
         current_frontier = np.zeros((occupancy_grid.height, occupancy_grid.width)) # used for display at the end
 
         for current_detection_algorithm in detection_algorithms:
             print(f"\n=== {current_detection_algorithm.algorithm_name} ===")
-
+            
+            current_result_file = f"results/{world_file}-{current_detection_algorithm.algorithm_name}.csv"
+            current_results = []
             # Warm up the run, EWFD and NaiveAA both require prior data, so to be fair in timing, we allow them to have their first run here
             current_detection_algorithm.identify_frontiers(occupancy_grid.as_flat(), occupancy_grid.width, occupancy_grid.height, np.array([[500, 500]]))
             
@@ -36,14 +38,18 @@ if __name__ == '__main__':
                 frontiers = current_detection_algorithm.identify_frontiers(occupancy_grid.as_flat(), occupancy_grid.width, occupancy_grid.height, np.array([[500, 500]]))
                 current_elapsed = time.time() - current
                 timings.append(current_elapsed)
+                current_results.append({'time': current_elapsed})
             elapsed = sum(timings)
+
+            df = pd.DataFrame(current_results)
+            df.to_csv(current_result_file, index=False)
             
             print(f"Took {elapsed} seconds")
             results.append({"algorithm": current_detection_algorithm.algorithm_name, "average time": elapsed / float(test_iterations), "total time": elapsed, "best time": min(timings), "worst time": max(timings), "number iterations": test_iterations, "world file": world_file, })
 
     df = pd.DataFrame(results)
 
-    df.to_csv(f'results.csv', index=False)
+    df.to_csv(f'results/results.csv', index=False)
 
     # current_frontier.fill(0)
     # for frontier in frontiers:

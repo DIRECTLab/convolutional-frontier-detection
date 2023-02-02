@@ -2,7 +2,7 @@ import yaml
 import numpy as np
 from occupancy_grid import OccupancyGrid
 from a_star import AStarPlanner
-from frontier_algorithms.ours import FrontierDetector
+from frontier_algorithms.convolutional import ConvolutionalFrontierDetector
 from frontier_algorithms.simple_search import SimpleFrontierDetector
 from frontier_algorithms.naiveAA import NaiveActiveArea
 from frontier_algorithms.expanding_wavefront import ExpandingWavefront
@@ -15,7 +15,7 @@ with open('config.yml', 'r') as file:
 if __name__ == '__main__':
     occupancy_grid = OccupancyGrid(config['maps'][0])
 
-    # frontier_detector = FrontierDetector()
+    # frontier_detector = ConvolutionalFrontierDetector()
     frontier_detector = SimpleFrontierDetector()
     # frontier_detector = NaiveActiveArea()
     # frontier_detector = ExpandingWavefront()
