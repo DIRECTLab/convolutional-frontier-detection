@@ -39,6 +39,9 @@ class SimpleFrontierDetector:
 
 
         frontiers = np.array(frontiers)
+
+        return frontiers # TODO: Remove this again, only here for 'ground truth'
+
         dbscan_cluster = DBSCAN(eps=1, min_samples=3)
         cluster_labels = dbscan_cluster.fit_predict(frontiers)
         
