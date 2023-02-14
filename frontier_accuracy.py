@@ -77,8 +77,8 @@ def get_alpha_complex(alpha, points, simplexes):
     """
     return filter(lambda simplex: circumcircle(points, simplex)[1] < alpha, simplexes)
 
-def fill_grid(occupancy_map, frontiers, alpha=100):
-    x, y = get_connection_points(frontiers, alpha=100)
+def fill_grid(occupancy_map, frontiers, start_x, start_y, alpha=100):
+    x, y = get_connection_points(frontiers, alpha=alpha)
 
     for i in range(1, len(x)):
         if x[i] is None or x[i-1] is None:
@@ -91,9 +91,14 @@ def fill_grid(occupancy_map, frontiers, alpha=100):
     for x_values, y_values in zip(triangles_x, triangles_y):
         fill_triangle(occupancy_map, x_values[0], y_values[0], x_values[1], y_values[1], x_values[2], y_values[2])
 
+    # flood_fill(occupancy_map, start_x, start_y)
     return occupancy_map
 
 def accuracy_metric(ground_truth, approximation, world_size=(1000, 1000)):
+    """
+    ground_truth: the frontiers of the ground truth (positions)
+    approximation: the frontiers of the approximation (positions)
+    """
     ground_truth_map = fill_grid(np.zeros(world_size), ground_truth)
     approximation_map = fill_grid(np.zeros(world_size), approximation)
     return np.sum(np.abs(ground_truth_map - approximation_map))

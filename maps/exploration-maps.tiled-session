@@ -3,10 +3,10 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "star.tmx",
+    "activeFile": "",
     "expandedProjectPaths": [
-        "."
     ],
+    "file.lastUsedOpenFilter": "All Files (*)",
     "fileStates": {
         "Terrain.tsx": {
             "scaleInDock": 1,
@@ -85,23 +85,22 @@
             }
         }
     },
-    "last.exportedFilePath": "D:/direct-lab/smbp-2/simple-sim/maps",
+    "last.exportedFilePath": "D:/direct-lab/convolutional-frontier-detection/maps",
     "last.imagePath": "C:/Users/funny/Downloads",
     "map.fixedSize": true,
-    "map.height": 500,
+    "map.height": 750,
     "map.lastUsedExportFilter": "JSON map files (*.tmj *.json)",
     "map.lastUsedFormat": "tmx",
-    "map.width": 500,
+    "map.width": 750,
     "openFiles": [
-        "star.tmx"
     ],
     "project": "exploration-maps.tiled-project",
     "recentFiles": [
         "star.tmx",
+        "large-field-large-explored.tmx",
+        "large-field-medium-explored.tmx",
         "medium-field-medium-explored.tmx",
         "medium-field-large-explored.tmx",
-        "large-field-medium-explored.tmx",
-        "large-field-large-explored.tmx",
         "large-field.tmx",
         "star.tmj",
         "simple-field.tmx",

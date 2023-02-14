@@ -27,7 +27,7 @@ class SimpleFrontierDetector:
                     return True
         return False
 
-    def identify_frontiers(self, occupancy_grid, width, height, robot_positions):
+    def identify_frontiers(self, occupancy_grid, width, height, robot_positions, should_cluster=True):
         frontier_map = np.reshape(occupancy_grid, (height, width))
 
         frontiers = []
@@ -40,7 +40,8 @@ class SimpleFrontierDetector:
 
         frontiers = np.array(frontiers)
 
-        return frontiers # TODO: Remove this again, only here for 'ground truth'
+        if not should_cluster:
+            return frontiers # TODO: Remove this again, only here for 'ground truth'
 
         dbscan_cluster = DBSCAN(eps=1, min_samples=3)
         cluster_labels = dbscan_cluster.fit_predict(frontiers)
