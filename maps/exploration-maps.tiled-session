@@ -3,8 +3,9 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "",
+    "activeFile": "large-field-medium-explored.tmx",
     "expandedProjectPaths": [
+        "."
     ],
     "file.lastUsedOpenFilter": "All Files (*)",
     "fileStates": {
@@ -32,16 +33,16 @@
             "scale": 0.03125,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 16928,
-                "y": 14960
+                "x": 22624,
+                "y": 16064
             }
         },
         "large-field-medium-explored.tmx": {
             "scale": 0.03125,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 16768,
-                "y": 16368
+                "x": 14592,
+                "y": 16320
             }
         },
         "large-field.tmx": {
@@ -101,14 +102,19 @@
     "map.lastUsedFormat": "tmx",
     "map.width": 750,
     "openFiles": [
+        "extra-medium.tmx",
+        "large-field-medium-explored.tmx",
+        "medium-field-large-explored.tmx",
+        "medium-field-medium-explored.tmx"
     ],
     "project": "exploration-maps.tiled-project",
     "recentFiles": [
-        "star.tmx",
-        "large-field-large-explored.tmx",
-        "large-field-medium-explored.tmx",
+        "extra-medium.tmx",
         "medium-field-medium-explored.tmx",
         "medium-field-large-explored.tmx",
+        "large-field-medium-explored.tmx",
+        "large-field-large-explored.tmx",
+        "star.tmx",
         "large-field.tmx",
         "star.tmj",
         "simple-field.tmx",

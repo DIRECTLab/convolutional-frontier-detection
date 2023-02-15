@@ -12,13 +12,17 @@ def valid_point(frontier, occupancy_grid):
     return 0 <= frontier[0] < occupancy_grid.shape[0] and 0 <= frontier[1] < occupancy_grid.shape[1]
 
 if __name__ == '__main__':
-    world_files = [("star.tmj", np.array([[100, 100], [70, 500], [275, 180]])), ("large-field-large-explored.tmj", np.array([[450, 200], [820, 420], [600, 850]])), ("large-field-medium-explored.tmj", np.array([[450, 250], [250, 450], [675, 600]])), ("medium-field-large-explored.tmj", np.array([[80, 100], [400, 100], [270, 425]])), ("medium-field-medium-explored.tmj", np.array([[300, 100], [140, 340], [400, 320]]))]
+    world_files = [("star", np.array([[100, 100], [70, 500], [275, 180]])),
+                   ("large-field-large-explored", np.array([[160, 250], [100, 780], [610, 890]])),
+                   ("large-field-medium-explored", np.array([[460, 200], [220, 380], [710, 675]])),
+                   ("medium-field-large-explored", np.array([[80, 70], [420, 90], [50, 430]])),
+                   ("medium-field-medium-explored", np.array([[340, 80], [440, 340], [150, 370]]))]
     test_iterations = 40
     results = []
 
     for world_file, robot_positions in world_files:
         print(f"Loading world {world_file}...\n")
-        occupancy_grid = OccupancyGrid(f'maps/{world_file}', True)
+        occupancy_grid = OccupancyGrid(f'maps/{world_file}.tmj', True)
 
         detection_algorithms = [SimpleFrontierDetector(), ConvolutionalFrontierDetector(8), ConvolutionalFrontierDetector(16), ConvolutionalFrontierDetector(32), ConvolutionalFrontierDetector(64), ConvolutionalFrontierDetector(128), ExpandingWavefront(), NaiveActiveArea()]
 
@@ -27,7 +31,7 @@ if __name__ == '__main__':
         for current_detection_algorithm in detection_algorithms:
             print(f"\n=== {current_detection_algorithm.algorithm_name} ===")
             
-            current_result_file = f"results/{world_file}-{current_detection_algorithm.algorithm_name}.csv"
+            current_result_file = f"results/timing/{world_file}-{current_detection_algorithm.algorithm_name}.csv"
             current_results = []
             # Warm up the run, EWFD and NaiveAA both require prior data, so to be fair in timing, we allow them to have their first run here
             current_detection_algorithm.identify_frontiers(occupancy_grid.as_flat(), occupancy_grid.width, occupancy_grid.height, robot_positions)
@@ -49,7 +53,7 @@ if __name__ == '__main__':
 
     df = pd.DataFrame(results)
 
-    df.to_csv(f'results/results.csv', index=False)
+    df.to_csv(f'results/timing-results.csv', index=False)
 
     # current_frontier.fill(0)
     # for frontier in frontiers:
