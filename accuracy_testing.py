@@ -67,7 +67,7 @@ if __name__ == '__main__':
             boundary_points_test = np.vstack(ch_test.boundary.exterior.xy).T
             distance, _ = fastdtw(boundary_points_ground_truth, boundary_points_test, dist=euclidean)
 
-            results.append({ 'world file': world_file, 'detector': frontier_detector.algorithm_name, 'distance': distance })
+            results.append({ 'world file': world_file, 'detector': frontier_detector.algorithm_name, 'distance': distance / len(frontiers_ground_truth) })
     
     result_df = pd.DataFrame(results)
     result_df.to_csv(f'results/accuracy.csv', index=False)
