@@ -90,7 +90,11 @@ class NaiveActiveArea:
                 phi = np.arctan2(translated_frontier[1], translated_frontier[0])
                 polar_frontiers.append({'phi': phi, 'frontier': frontier})
             polar_frontiers = sorted(polar_frontiers, key=lambda d: d['phi'])
-            temp_frontiers.append(polar_frontiers[len(polar_frontiers)//2]['frontier'])
+
+            number_frontiers = len(polar_frontiers) // config['max_frontiers_in_section']
+
+            for i in range(1, number_frontiers):
+                temp_frontiers.append(polar_frontiers[len(polar_frontiers) * i // number_frontiers]['frontier'])
 
         frontiers = []
         for frontier in temp_frontiers:

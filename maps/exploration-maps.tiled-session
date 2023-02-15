@@ -20,12 +20,20 @@
                 "y": 304.65973851827016
             }
         },
+        "extra-medium.tmx": {
+            "scale": 0.03125,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 12352,
+                "y": 11856
+            }
+        },
         "large-field-large-explored.tmx": {
             "scale": 0.03125,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 16000,
-                "y": 16000
+                "x": 16928,
+                "y": 14960
             }
         },
         "large-field-medium-explored.tmx": {
@@ -33,7 +41,7 @@
             "selectedLayer": 0,
             "viewCenter": {
                 "x": 16768,
-                "y": 16384
+                "y": 16368
             }
         },
         "large-field.tmx": {
@@ -49,15 +57,15 @@
             "selectedLayer": 0,
             "viewCenter": {
                 "x": 8000,
-                "y": 8000
+                "y": 7992
             }
         },
         "medium-field-medium-explored.tmx": {
             "scale": 0.0625,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 8000,
-                "y": 8000
+                "x": 6208,
+                "y": 10184
             }
         },
         "simple-field.tmx": {

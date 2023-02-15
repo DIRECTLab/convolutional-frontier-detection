@@ -12,24 +12,31 @@ from scipy.spatial.distance import euclidean
 
 if __name__ == '__main__':
     world_files = [("star", np.array([[100, 100], [70, 500], [275, 180]])),
-                   ("large-field-large-explored", np.array([[450, 200], [820, 420], [600, 850]])),
-                   ("large-field-medium-explored", np.array([[450, 250], [250, 450], [675, 600]])),
-                   ("medium-field-large-explored", np.array([[80, 100], [400, 100], [270, 425]])),
-                   ("medium-field-medium-explored", np.array([[300, 100], [140, 340], [400, 320]]))]
+                   ("large-field-large-explored", np.array([[160, 250], [100, 780], [610, 890]])),
+                   ("large-field-medium-explored", np.array([[460, 200], [220, 380], [710, 675]])),
+                   ("medium-field-large-explored", np.array([[80, 70], [420, 90], [50, 430]])),
+                   ("medium-field-medium-explored", np.array([[340, 80], [440, 340], [150, 370]]))]
 
     ground_truth_detector = SimpleFrontierDetector()
 
-    frontier_detectors = [ConvolutionalFrontierDetector(16),
+    frontier_detectors = [
+                          ConvolutionalFrontierDetector(16),
                           ConvolutionalFrontierDetector(32),
                           ConvolutionalFrontierDetector(64),
                           ConvolutionalFrontierDetector(128),
                           SimpleFrontierDetector(),
-                        #   ExpandingWavefront(),
-                          NaiveActiveArea()]
+                          ExpandingWavefront(),
+                          NaiveActiveArea(),
+                          ]
     
     results = []
 
     for world_file, robot_positions in world_files:
+
+        # Reset expanding wavefront and naive active area
+        frontier_detectors[5] = ExpandingWavefront()
+        frontier_detectors[6] = NaiveActiveArea()
+
         print(f"===== Running {world_file} =====")
         occupancy_grid = OccupancyGrid(f"maps/{world_file}.tmj", True)
         frontiers_ground_truth = ground_truth_detector.identify_frontiers(occupancy_grid.as_flat(),
