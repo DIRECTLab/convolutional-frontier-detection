@@ -20,6 +20,7 @@ if __name__ == '__main__':
     ground_truth_detector = SimpleFrontierDetector()
 
     frontier_detectors = [
+                          ConvolutionalFrontierDetector(8),
                           ConvolutionalFrontierDetector(16),
                           ConvolutionalFrontierDetector(32),
                           ConvolutionalFrontierDetector(64),
@@ -34,8 +35,8 @@ if __name__ == '__main__':
     for world_file, robot_positions in world_files:
 
         # Reset expanding wavefront and naive active area
-        frontier_detectors[5] = ExpandingWavefront()
-        frontier_detectors[6] = NaiveActiveArea()
+        frontier_detectors[6] = ExpandingWavefront()
+        frontier_detectors[7] = NaiveActiveArea()
 
         print(f"===== Running {world_file} =====")
         occupancy_grid = OccupancyGrid(f"maps/{world_file}.tmj", True)

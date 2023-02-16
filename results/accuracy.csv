@@ -1,4 +1,5 @@
 world file,detector,distance
+star,Convolutional-(8x8),1.6958709036403217
 star,Convolutional-(16x16),2.5371964025918983
 star,Convolutional-(32x32),4.692734016015834
 star,Convolutional-(64x64),8.078802070548239
@@ -6,6 +7,7 @@ star,Convolutional-(128x128),13.127660172810845
 star,Simple,43.26543245473423
 star,ExpandingWavefront,0.8054960417783097
 star,NaiveActiveArea,151.16463571499486
+large-field-large-explored,Convolutional-(8x8),2.7796636330364652
 large-field-large-explored,Convolutional-(16x16),1.4551699400289746
 large-field-large-explored,Convolutional-(32x32),3.4524910800886084
 large-field-large-explored,Convolutional-(64x64),13.226875525576522
@@ -13,6 +15,7 @@ large-field-large-explored,Convolutional-(128x128),13.042045388966956
 large-field-large-explored,Simple,0.4461901646627487
 large-field-large-explored,ExpandingWavefront,0.2651217789593065
 large-field-large-explored,NaiveActiveArea,46.1404631951629
+large-field-medium-explored,Convolutional-(8x8),6.2782420974372455
 large-field-medium-explored,Convolutional-(16x16),2.9238068113308526
 large-field-medium-explored,Convolutional-(32x32),3.1024733795988246
 large-field-medium-explored,Convolutional-(64x64),5.9774316919298816
@@ -20,6 +23,7 @@ large-field-medium-explored,Convolutional-(128x128),7.840464222207343
 large-field-medium-explored,Simple,0.46085718456422187
 large-field-medium-explored,ExpandingWavefront,0.2905299512170142
 large-field-medium-explored,NaiveActiveArea,48.094943640253966
+medium-field-large-explored,Convolutional-(8x8),1.4080936947911749
 medium-field-large-explored,Convolutional-(16x16),2.354956650089618
 medium-field-large-explored,Convolutional-(32x32),4.4752199433575806
 medium-field-large-explored,Convolutional-(64x64),7.74488512952292
@@ -27,6 +31,7 @@ medium-field-large-explored,Convolutional-(128x128),16.01316456603784
 medium-field-large-explored,Simple,0.7127018832415342
 medium-field-large-explored,ExpandingWavefront,0.3678948937356993
 medium-field-large-explored,NaiveActiveArea,51.935126666588424
+medium-field-medium-explored,Convolutional-(8x8),1.9652336990838517
 medium-field-medium-explored,Convolutional-(16x16),1.4429271292987704
 medium-field-medium-explored,Convolutional-(32x32),2.7868005727102876
 medium-field-medium-explored,Convolutional-(64x64),6.775311375603811

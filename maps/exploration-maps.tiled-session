@@ -3,7 +3,7 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "large-field-medium-explored.tmx",
+    "activeFile": "extra-medium.tmx",
     "expandedProjectPaths": [
         "."
     ],
@@ -22,11 +22,11 @@
             }
         },
         "extra-medium.tmx": {
-            "scale": 0.03125,
+            "scale": 0.5,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 12352,
-                "y": 11856
+                "x": 12760,
+                "y": 8088
             }
         },
         "large-field-large-explored.tmx": {
@@ -38,11 +38,11 @@
             }
         },
         "large-field-medium-explored.tmx": {
-            "scale": 0.03125,
+            "scale": 0.0625,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 14592,
-                "y": 16320
+                "x": 13536,
+                "y": 13808
             }
         },
         "large-field.tmx": {
@@ -65,8 +65,8 @@
             "scale": 0.0625,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 6208,
-                "y": 10184
+                "x": 8000,
+                "y": 7992
             }
         },
         "simple-field.tmx": {
@@ -109,10 +109,10 @@
     ],
     "project": "exploration-maps.tiled-project",
     "recentFiles": [
-        "extra-medium.tmx",
         "medium-field-medium-explored.tmx",
         "medium-field-large-explored.tmx",
         "large-field-medium-explored.tmx",
+        "extra-medium.tmx",
         "large-field-large-explored.tmx",
         "star.tmx",
         "large-field.tmx",
