@@ -6,7 +6,7 @@ required_coverage: 0.95
 wall_number: 29
 explored_wall_number: 85
 explored_free_number: 218
-maps: ["maps/simple-field.json", "maps/astar_test.json", "maps/test2.json"]
+maps: ["maps/star.tmj"]
 save_file: "results"
 render: True
 distance_to_goal_before_replan: 20

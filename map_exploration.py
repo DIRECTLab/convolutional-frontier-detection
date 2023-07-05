@@ -15,8 +15,8 @@ with open('config.yml', 'r') as file:
 if __name__ == '__main__':
     occupancy_grid = OccupancyGrid(config['maps'][0])
 
-    # frontier_detector = ConvolutionalFrontierDetector()
-    frontier_detector = SimpleFrontierDetector()
+    frontier_detector = ConvolutionalFrontierDetector()
+    # frontier_detector = SimpleFrontierDetector()
     # frontier_detector = NaiveActiveArea()
     # frontier_detector = ExpandingWavefront()
 
